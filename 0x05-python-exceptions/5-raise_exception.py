@@ -1,7 +1,6 @@
 #!/usr/bin/python3
-
 def raise_exception():
     try:
-        raise TypeError("Type exception")
-    except TypeError as e:
-        print(e)
+        2 + "Alpha"
+    except(TypeError):
+        raise TypeError
