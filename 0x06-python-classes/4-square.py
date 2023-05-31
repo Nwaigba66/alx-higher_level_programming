@@ -1,5 +1,9 @@
 #!/usr/bin/python3
+"""create size function"""
+
+
 class Square:
+    """initialize size"""
     def __init__(self, size=0):
         self.__size = int(size)
 
