@@ -10,7 +10,7 @@ if __name__ == "__main__":
     database_name: str = sys.argv[3]
     host: str = "localhost"
     port: int = 3306
-    result: str = """SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id"""
+    result: str = """SELECT * FROM states WHERE BINARY name LIKE 'N%' ORDER BY id"""
 
     database = MySQLdb.connect(
         user=username,
