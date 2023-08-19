@@ -10,7 +10,11 @@ if __name__ == "__main__":
     database_name: str = sys.argv[3]
     host: str = "localhost"
     port: int = 3306
-    result: str = """SELECT * FROM cities ORDER BY id"""
+    result: str = """SELECT c.id, c.name, s.name
+    FROM cities AS c
+    Join states AS s
+    ON c.state_id = s.id
+    ORDER BY c.id"""
 
     database = MySQLdb.connect(
         user=username,
