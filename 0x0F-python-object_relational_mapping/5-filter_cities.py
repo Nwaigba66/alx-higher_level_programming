@@ -32,7 +32,7 @@ if __name__ == "__main__":
     )
     cursor = database.cursor()
 
-    cursor.execute(statement, (argument,))
+    cursor.execute(result, (argument,))
     rows = cursor.fetchall()
     cities = tuple(row[1] for row in rows)
     cities = ', '.join(cities)
