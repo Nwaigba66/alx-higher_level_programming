@@ -1,8 +1,7 @@
 #!/usr/bin/python3
 """
-Lists all State objects from the database hbtn_0e_6_usa
+This script adds the State object “Louisiana” to the database hbtn_0e_6_usa
 """
-
 import sys
 
 from sqlalchemy import (create_engine)
@@ -23,5 +22,8 @@ if __name__ == "__main__":
     Session.configure(bind=engine)
     session = Session()
 
-    for state in session.query(State).order_by(State.id):
-        print(state.id, state.name, sep=': ')
+    new_state = State(name='Louisiana')
+    session.add(new_state)
+    session.commit()
+    new_state = session.query(State).filter_by(name='Louisiana').first()
+    print(new_state.id)

@@ -16,18 +16,17 @@ if __name__ == "__main__":
     username: str = sys.argv[1]
     password: str = sys.argv[2]
     database_name: str = sys.argv[3]
-    arg: str = sys.argv[4]
+    argument: str = sys.argv[4]
     host: str = "localhost"
     port: int = 3306
 
     Session = sessionmaker()
-    engine = create_engine(
-        f"mysql+mysqldb://{username}:{password}@{host}/{database_name}",pool_pre_ping=True,)
+    engine = create_engine(f"mysql+mysqldb://{username}:{password}@{host}/{database_name}",pool_pre_ping=True,)
     Base.metadata.create_all(engine)
     Session.configure(bind=engine)
     session = Session()
 
-    if (query := session.query(State).order_by(State.id).filter(State.name == arg).first()
+    if (query := session.query(State).order_by(State.id).filter(State.name == argument).first()
     ):
         print(query.id)
     else:

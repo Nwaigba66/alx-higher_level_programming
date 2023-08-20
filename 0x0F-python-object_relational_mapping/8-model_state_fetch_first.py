@@ -2,8 +2,6 @@
 """
 This script prints the first State object from the database hbtn_0e_6_usa
 """
-
-
 import sys
 
 from sqlalchemy import (create_engine)
@@ -19,10 +17,7 @@ if __name__ == "__main__":
     port: int = 3306
 
     Session = sessionmaker()
-    engine = create_engine(
-        f'mysql+mysqldb://{username}:{password}@{host}/{database_name}',
-        pool_pre_ping=True,
-    )
+    engine = create_engine(f'mysql+mysqldb://{username}:{password}@{host}/{database_name}',pool_pre_ping=True,)
     Base.metadata.create_all(engine)
     Session.configure(bind=engine)
     session = Session()
